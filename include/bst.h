@@ -22,7 +22,7 @@ class BST {
  public:
         void add(T);
         int search(T);
-        int height();
+        int depth();
         void print();
         void del(T);
         BST();
@@ -150,7 +150,7 @@ class BST {
                  printTree(root);
         }
         template<typename T>
-        int BST<T>::height() {
+        int BST<T>::depth() {
                 return heightTree(root);
         }
 #endif  // INCLUDE_BST_H_
