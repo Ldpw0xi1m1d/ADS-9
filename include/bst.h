@@ -7,7 +7,7 @@ template <typename T>
 class BST {
  private:
      struct Node {
-         T value;
+         T* value;
          int count;
          Node* left;
          Node* right;
