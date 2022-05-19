@@ -5,9 +5,8 @@
 #include <iostream>
 template <typename T>
 class BST {
-private:
-     struct Node
-     {
+ private:
+     struct Node {
          T value;
          int count;
          Node* left;
@@ -20,7 +19,7 @@ private:
         int   searchNode(Node*, T&);
         void  delTree(Node*);
         Node* delNode(Node*, T&);
-public:
+ public:
         void add(T&);
         int search(T&);
         int height();
@@ -44,29 +43,39 @@ public:
                        root->value = val;
                        root->count = 1;
                        root->left = root->right = nullptr;
-                }
-                else if (val < root->value)
+                } else if (val < root->value) {
                         root->left = addNode(root->left, val);
-                else if (val > root->value)
+                } else if (val > root->value) {
                         root->right = addNode(root->right, val);
-                else root->count++;
+                } else {
+                root->count++;
+                }
                 return root;
         }
         template <typename T>
         int BST<T>::searchNode(Node* root, T& val) {
-                if (root == nullptr) return 0;
-                else if (root->value == val) return root->count;
-                else if (root->value > val) return searchNode(root->left, val);
-                else return searchNode(root->right, val);
+                if (root == nullptr) {
+                     return 0;
+                } else if (root->value == val) {
+                     return root->count;
+                } else if (root->value > val) {
+                     return searchNode(root->left, val);
+                } else {
+                    return searchNode(root->right, val);
+                }
         }
         template <typename T>
         int BST<T>::heightTree(Node* root) {
-                if (root == nullptr) return 0;
-                else {
+                if (root == nullptr) {
+                     return 0;
+                } else {
                         int L = heightTree(root->left);
                         int R = heightTree(root->right);
-                        if (R > L) return R + 1;
-                        else return L + 1;
+                        if (R > L) {
+                             return R + 1;
+                        } else {
+                             return L + 1;
+                        }
                 }
         }
         template <typename T>
@@ -80,8 +89,9 @@ public:
         }
         template <typename T>
         void BST<T>::delTree(Node* root) {
-                if (root == nullptr) return;
-                else {
+                if (root == nullptr) {
+                     return;
+                } else {
                         delTree(root->left);
                         delTree(root->right);
                         delete root;
@@ -90,19 +100,19 @@ public:
         template<typename T>
         typename BST<T>::Node* BST<T>::delNode(Node* root, T& value) {
                Node* p, * v;
-                if (root == nullptr)
+                if (root == nullptr) {
                          return root;
-                else if (value < root->value)
+                } else if (value < root->value) {
                          root->left = delNode(root->left, value);
-                else if (value > root->value)
+                } else if (value > root->value) {
                          root->right = delNode(root->right, value);
-                else {
+                } else {
                         p = root;
-                        if (root->right == nullptr)
+                        if (root->right == nullptr) {
                                 root = root->left;
-                        else if (root->left == nullptr)
+                        } else if (root->left == nullptr) {
                                 root = root->right;
-                        else {
+                        } else {
                                v = root->left;
                                 if (v->right) {
                                         while (v->right->right)
