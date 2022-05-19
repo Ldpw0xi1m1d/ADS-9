@@ -1,6 +1,6 @@
 // Copyright 2021 NNTU-CS
-#ifndef INCLUDE_TRAIN_H_
-#define INCLUDE_TRAIN_H_
+#ifndef INCLUDE_BST_H_
+#define INCLUDE_BST_H_
 
 #include <iostream>
 template <typename T>
