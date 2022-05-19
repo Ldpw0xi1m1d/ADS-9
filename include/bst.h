@@ -68,6 +68,8 @@ class BST {
         int BST<T>::heightTree(Node* root) {
                 if (root == nullptr) {
                      return 0;
+                } else if (root->left == nullptr && root->right == nullptr) {
+                 return 0;
                 } else {
                         int L = heightTree(root->left);
                         int R = heightTree(root->right);
