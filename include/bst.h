@@ -35,7 +35,6 @@ class BST {
         template <typename T>
         BST <T>:: ~BST() {
                 delTree(root);
-                root = nullptr;
         }
         template <typename T>
         typename BST<T>::Node* BST<T>::addNode(Node* root, T val) {
@@ -69,8 +68,6 @@ class BST {
         int BST<T>::heightTree(Node* root) {
                 if (root == nullptr) {
                      return 0;
-                } else if(root->left == nullptr && root->right == nullptr) {
-                 return 0;
                 } else {
                         int L = heightTree(root->left);
                         int R = heightTree(root->right);
@@ -98,7 +95,6 @@ class BST {
                         delTree(root->left);
                         delTree(root->right);
                         delete root;
-                        root = nullptr;
                 }
         }
         template<typename T>
