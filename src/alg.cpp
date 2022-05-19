@@ -17,7 +17,7 @@ BST<std::string> makeTree(const char* filename) {
                 while (str >= 65 && (!F.eof())) {
                      if (str >= 65 && str <= 90) {
                                 word += str;
-		     }
+                     }
                       if (str >= 97 && str <= 122) {
                                 word += str;
                       }
